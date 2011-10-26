@@ -1,0 +1,40 @@
+options:
+  charset: utf8
+
+DiaryTrackback:
+  actAs: [Timestampable]
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      auto_increment: true
+    diary_id:
+      type: integer(4)
+    url:
+      type: string
+    title:
+      type: string
+    excerpt:
+      type: string
+    blog_name:
+      type: string
+    blog_url:
+      type: string
+  relations:
+    Diary:
+      onDelete: cascade
+
+DiaryTrackbackSent:
+  actAs: [Timestampable]
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      auto_increment: true
+    diary_id:
+      type: integer(4)
+    target_url_list:
+      type: string
+  relations:
+    Diary:
+      onDelete: cascade
